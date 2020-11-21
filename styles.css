@@ -1,0 +1,154 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/*Header*/
+header{
+    border-bottom: #cfcfcf solid 1px;
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    align-items: center;
+}
+
+h1.logo{
+    font-size: 27px;
+    color: #37474F;
+    font-weight: 700;
+    flex-grow: 1;
+    padding-left: 25px;;
+}
+header a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #FE4081;
+    padding: 10px;
+    flex-basis: 100px;
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 25px;
+}
+
+/*Filters*/
+.languagesFilter{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.languagesFilter .clear{
+    flex-grow: 1;
+}
+
+.language{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 90px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.language .logo{
+    width: 50px;
+    height: 50px;
+    background-color: #3b7fed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 90%;
+    box-shadow: 0px 0px 0px 0px #d1d1d1;
+    transition-duration: 0.5s;
+}
+
+.language .logo:hover{
+    box-shadow: 0px 0px 3px 4px #d1d1d1;
+
+}
+
+.language h4{
+    margin-top: 3px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.language .logo span{
+    font-size: 20px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.iconify{
+    width: 26px;
+    height: 26px;
+}
+
+/*logos colors*/
+.language .ruby{
+    color: #fff;
+    background-color: #f3463b;
+}
+
+.language .java{
+    color: #fff;
+    background-color: #80378C;
+}
+
+.language .php{
+    color: #fff;
+    background-color: #35DAA2;
+}
+
+.language .net{
+    color: #fff;
+    background-color: #FFB502;
+}
+
+.language .python{
+    color: #fff;
+    background-color: #F95A79;
+}
+
+.language .html{
+    color: #fff;
+    background-color: #FE632A;
+}
+
+.language .mobile{
+    color: #fff;
+    background-color: #007E70;
+}
+
+.language .js{
+    color: #fff;
+    background-color: #6bbae6;
+}
+
+.language .other{
+    color: #fff;
+    background-color: #E14BC4;
+}
+ul{
+    list-style-type: none;
+}
+/*Offers*/
+.allOffers{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.offerContainer{
+    width: 95vw;
+    height: 110px;
+    border: #000 solid 1px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
