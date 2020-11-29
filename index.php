@@ -17,7 +17,7 @@
 <body>
     <header>
         <h1 class="logo">ItJobOffers.pl</h1>
-        <a href="/ItJob/index.php"><div class="loginButton">SignIn </div></a>
+        <a href="/ItJob/login.php"><div class="loginButton">SignIn </div></a>
     </header>
     <div class="languagesFilter">
         <div class="clear"></div>
