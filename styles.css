@@ -23,7 +23,13 @@ h1.logo{
     flex-grow: 1;
     padding-left: 25px;;
 }
-header a{
+
+h1 a{
+    text-decoration: none;
+    color: #000;
+}
+
+header>a{
     text-decoration: none;
     color: #fff;
     background-color: #FE4081;
@@ -32,6 +38,11 @@ header a{
     text-align: center;
     border-radius: 20px;
     margin-right: 25px;
+    transition-duration: 0.5s;
+}
+
+header>a:hover{
+    background-color: #ff1465;
 }
 
 /*Filters*/
