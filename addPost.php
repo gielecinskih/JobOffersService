@@ -1,7 +1,20 @@
 <?php session_start(); ?>
 <?php
-if(!isset($_SESSION['email'])){
+if (!isset($_SESSION['email'])) {
     header("Location: /ItJob/");
+}
+?>
+<?php include "db.php"; ?>
+<?php
+$query = "SELECT technology FROM technologies";
+$select_tech_query = mysqli_query($connection, $query);
+if (!$select_tech_query) {
+    header("Location: /ItJob/");
+}
+
+$technologies = array();
+while ($row = mysqli_fetch_array($select_tech_query)) {
+    array_push($technologies, $row['technology']);
 }
 ?>
 
@@ -22,94 +35,82 @@ if(!isset($_SESSION['email'])){
 <header>
     <h1 class="logo"><a href='/ItJob/'>ItJobOffers.pl</a></h1>
     <?php
-    if(isset($_SESSION['email'])){
+    if (isset($_SESSION['email'])) {
         echo "<a href='/ItJob/logOut.php'><div class='logOutButton'>Log out</div></a>";
     }
     ?>
 </header>
-<div class="languagesFilter">
-    <div class="clear"></div>
-    <div class="language">
-        <div class="logo">
-            <span>All</span>
-        </div>
-        <h4 class="name">All</h4>
+<form action="">
+    <div>
+        <label for="offerName">Offer Name</label>
+        <input class="inForm" name="offerName" type="text">
     </div>
-    <div class="language">
-        <div class="logo ruby">
-            <span class="iconify" data-icon="whh:ruby" data-inline="false"></span>
-        </div>
-        <h4 class="name">RUBY</h4>
+    <div>
+        <label for="companyName">Company Name</label>
+        <input class="inForm" name="companyName" type="text">
     </div>
-    <div class="language">
-        <div class="logo java">
-            <span class="iconify" data-icon="cib:java" data-inline="false"></span>
-        </div>
-        <h4 class="name">JAVA</h4>
+    <div>
+        <label for="salary">Salary (PLN)</label>
+        <input class="inForm" name="salary" type="number">
     </div>
-    <div class="language">
-        <div class="logo php">
-            <span class="iconify" data-icon="cib:php" data-inline="false"></span>
-        </div>
-        <h4 class="name">PHP</h4>
+    <div>
+        <label for="address">Address</label>
+        <input class="inForm" name="address" type="text">
     </div>
-    <div class="language">
-        <div class="logo net">
-            <span class="iconify" data-icon="cib:dot-net" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">.NET</h4>
+    <div>
+        <label for="experience">Experience</label>
+        <input class="inForm" name="experience" type="number">
     </div>
-    <div class="language">
-        <div class="logo python">
-            <span class="iconify" data-icon="bx:bxl-python" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">PYTHON</h4>
+    <div>
+        <label for="typeOfRecrutation">Recrutation type</label>
+        <select name="typeOfRecrutation" class="inForm">
+            <option value="online">Online</option>
+            <option value="office">Office</option>
+            <option value="hybrid">Hybrid</option>
+        </select>
     </div>
-    <div class="language">
-        <div class="logo html">
-            <span class="iconify" data-icon="icomoon-free:html-five" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">HTML</h4>
+    <div>
+        <label for="stages">Number of stages</label>
+        <input class="inForm" name="stages" type="number">
     </div>
-    <div class="language">
-        <div class="logo mobile">
-            <span class="iconify" data-icon="tabler:device-mobile" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">MOBILE</h4>
+    <div>
+        <label for="stages">Number of stages</label>
+        <input class="inForm" name="stages" type="number">
     </div>
-    <div class="language">
-        <div class="logo js">
-            <span class="iconify" data-icon="cib:javascript" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">JS</h4>
+    <div>
+        <label for="technology">Technology</label>
+        <select name="technology" class="inForm">
+            <?php
+            foreach ($technologies as &$tech) {
+                echo "<option value='$tech'>$tech</option>";
+            }
+            ?>
+        </select>
     </div>
-    <div class="language">
-        <div class="logo other">
-            <span class="iconify" data-icon="jam:computer-alt" data-inline="false" data-width="40" data-height="40"></span>
-        </div>
-        <h4 class="name">OTHER</h4>
+    <div>
+        <label for="hardware">Hardware</label>
+        <input id="chbox" class="inForm" name="hardware" type="checkbox">
     </div>
-    <div class="clear"></div>
-</div>
-<div class="offers">
-    <ul class="allOffers">
-        <li class="offer">
-            <div class="offerContainer">
-                Offer
-            </div>
-        </li>
-        <li class="offer">
-            <div class="offerContainer">
-                Offer
-            </div>
-        </li>
-        <li class="offer">
-            <div class="offerContainer">
-                Offer
-            </div>
-        </li>
-    </ul>
-</div>
+    <div>
+        <label for="car">Car</label>
+        <input id="chbox" class="inForm" name="car" type="checkbox">
+    </div>
+    <div>
+        <label for="phone">Phone</label>
+        <input id="chbox" class="inForm" name="phone" type="checkbox">
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <textarea class="inForm" name="description" rows="4" cols="50"></textarea>
+    </div>
+    <div>
+        <label for="requirements">Requirements</label>
+        <textarea class="inForm" name="requirements" rows="4" cols="50"></textarea>
+    </div>
+    <div>
+        <input name="submit" class="inFormButton example_e" type="submit" value="Add Post">
+    </div>
 
+</form>
 </body>
 </html>
