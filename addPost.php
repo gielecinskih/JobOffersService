@@ -40,26 +40,26 @@ while ($row = mysqli_fetch_array($select_tech_query)) {
     }
     ?>
 </header>
-<form action="">
+<form action="processPosting.php" method="POST">
     <div>
         <label for="offerName">Offer Name</label>
-        <input class="inForm" name="offerName" type="text">
+        <input class="inForm" name="offerName" type="text" required>
     </div>
     <div>
         <label for="companyName">Company Name</label>
-        <input class="inForm" name="companyName" type="text">
+        <input class="inForm" name="companyName" type="text" required>
     </div>
     <div>
         <label for="salary">Salary (PLN)</label>
-        <input class="inForm" name="salary" type="number">
+        <input class="inForm" name="salary" type="number" required>
     </div>
     <div>
         <label for="address">Address</label>
-        <input class="inForm" name="address" type="text">
+        <input class="inForm" name="address" type="text" required>
     </div>
     <div>
         <label for="experience">Experience</label>
-        <input class="inForm" name="experience" type="number">
+        <input class="inForm" name="experience" type="number" required>
     </div>
     <div>
         <label for="typeOfRecrutation">Recrutation type</label>
@@ -71,11 +71,7 @@ while ($row = mysqli_fetch_array($select_tech_query)) {
     </div>
     <div>
         <label for="stages">Number of stages</label>
-        <input class="inForm" name="stages" type="number">
-    </div>
-    <div>
-        <label for="stages">Number of stages</label>
-        <input class="inForm" name="stages" type="number">
+        <input class="inForm" name="stages" type="number" required>
     </div>
     <div>
         <label for="technology">Technology</label>
